@@ -8,10 +8,10 @@ function manipulate() {
     var password = $("#password").val();
     var encryption = $("#encryption").val();
 
-    if (serverAddr && serverPort && password && encryption) {
+    if (serverAddr && serverPort && serverPort > 0 && password && encryption) {
         var origstr = encryption + ':' + password + '@' + serverAddr + ':' + serverPort;
         var b64str = utf8_to_b64(origstr);
-        console.log('ss://' + b64str);
+
         qrcode.makeCode('ss://' + b64str);
     } else {
         alert("Please fill all blanks.");
